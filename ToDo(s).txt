@@ -1,0 +1,7 @@
+Implement Player, Planet and Event schemas and modules for gameplay interaction;
+Implement landing page with Bootstrap and jQuery (for screenshot gallery);
+Decompile landing page for Jade;
+Fully implement Planet controller in Angular;
+Implement Events controller in Angular;
+Add on log in functionallity for player data update;
+Extend user Schema for fields: createdAt, email, lastLogin

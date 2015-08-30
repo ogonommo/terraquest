@@ -1,0 +1,1 @@
+var Event = require('mongoose').model('Event');
