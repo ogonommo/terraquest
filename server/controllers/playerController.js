@@ -1,4 +1,5 @@
 var Player = require('mongoose').model('Player');
+var planet = require('./planetController');
 var GamePlayer = require('../../public/app/game/gamePlayer');
 
 module.exports = {
@@ -51,16 +52,18 @@ module.exports = {
       if (typeof req._my_lastAction === 'undefined') {
 				req._my_lastAction = Date.now();
 				action = player.action(req.params.action);
-				console.log(action);
+				//console.log(action);
         if(action.complete) {
+					planet.updatePlanet(action.effect);
 					res.send({success: true, msg: action.msg});
 				} else {
 					res.send({success: false, msg: 'Error occurred!'});
 				}
       } else if (Date.now() - req._my_lastAction > 1000) {
 				action = player.action(req.params.action);
-				console.log(action);
+				//console.log(action);
 				if(action.complete) {
+					planet.updatePlanet(action.effect);
 					res.send({success: true, msg: action.msg});
 				} else {
 					res.send({success: false, msg: 'Error occurred!'});

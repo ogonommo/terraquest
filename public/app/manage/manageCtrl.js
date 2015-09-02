@@ -12,6 +12,7 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
         notifier.error(e.msg);
       });
     }
+    
     function update(pd) {
       var level, multiplier, prop;
       if (pd.buildings.length) { //Go over the buildings
@@ -24,7 +25,13 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
             prop.bionium = prop.prop.price.bionium * multiplier;
             prop.qubitium = prop.prop.price.qubitium * multiplier;
             prop.transendium = prop.prop.price.transendium * multiplier;
+            if (prop.gold > pd.resources.gold || prop.bionium > pd.resources.bionium || prop.qubitium > pd.resources.qubitium || prop.transendium > pd.resources.transendium) {
+              prop.active = false;
+            } else {
+              prop.active = true;
+            }
           } else {
+            prop.active = false;
             prop.gold = 0;
             prop.bionium = 0;
             prop.qubitium = 0;
@@ -40,6 +47,11 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
             prop.bionium = prop.prop.price.bionium;
             prop.qubitium = prop.prop.price.qubitium;
             prop.transendium = prop.prop.price.transendium;
+            if (prop.gold > pd.resources.gold || prop.bionium > pd.resources.bionium || prop.qubitium > pd.resources.qubitium || prop.transendium > pd.resources.transendium) {
+              prop.active = false;
+            } else {
+              prop.active = true;
+            }
           } else {
             prop.gold = 0;
             prop.bionium = 0;
@@ -56,6 +68,11 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
             prop.bionium = prop.prop.price.bionium;
             prop.qubitium = prop.prop.price.qubitium;
             prop.transendium = prop.prop.price.transendium;
+            if (prop.gold > pd.resources.gold || prop.bionium > pd.resources.bionium || prop.qubitium > pd.resources.qubitium || prop.transendium > pd.resources.transendium) {
+              prop.active = false;
+            } else {
+              prop.active = true;
+            }
           } else {
             prop.gold = 0;
             prop.bionium = 0;
@@ -65,6 +82,7 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
         }
       }
     }
+
     $http.get('/api/player').success(function(p){
         //$scope.Player = p;
         var player = new GamePlayer();

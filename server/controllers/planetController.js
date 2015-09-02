@@ -11,7 +11,7 @@ module.exports = {
 			res.send(p);
 		});
 	},
-	updatePlanet: function(req, res, next) {
-		
+	updatePlanet: function(effect) {
+
 	}
 }

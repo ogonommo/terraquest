@@ -30,4 +30,5 @@
 						td {{ item.qubitium | number:0 }}
 						td {{ item.transendium | number:0 }}
 						td
-							button(ng-click="takeAction(item.prop.actionId)") Upgrade
+							button(ng-show="item.active" ng-click="takeAction(item.prop.actionId)") Upgrade
+							p(ng-hide="item.active") Requirements
