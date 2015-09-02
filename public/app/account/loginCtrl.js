@@ -4,7 +4,7 @@ app.controller('LoginCtrl', function($scope, $location, notifier, identity, auth
     $scope.login = function(user) {
         auth.login(user).then(function(success) {
             if (success) {
-                notifier.success('Successful login!');
+                notifier.success('Awwwww yeah! Welcome back!');
             }
             else {
                 notifier.error('Username/Password combination is not valid!');
