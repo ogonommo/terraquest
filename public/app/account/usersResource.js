@@ -7,3 +7,9 @@ app.factory('UsersResource', function($resource) {
 
     return UsersResource;
 });
+
+app.factory('ManageResource', function($resource) {
+    var ManageResource = $resource('/api/player', {get: {method: 'GET', isArray: false}});
+
+    return ManageResource;
+});

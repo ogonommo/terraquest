@@ -39,6 +39,11 @@ app.config(function($routeProvider, $locationProvider) {
             controller: 'PlanetCtrl',
             resolve: routeUserChecks.authenticated
         })
+        .when('/manage', {
+          templateUrl: '/partials/manage/manage',
+          controller: 'ManageCtrl',
+          resolve: routeUserChecks.authenticated
+        })
 });
 
 app.run(function($rootScope, $location) {

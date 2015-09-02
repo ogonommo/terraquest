@@ -1,5 +1,5 @@
 var passport = require('passport');
-require('../models/Player');
+var player = require('../models/Player');
 var Player = require('mongoose').model('Player');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
             req.logIn(user, function(err) {
                 if (err) return next(err);
                 //Checkpoint for events, resources and messages update
-                
+                player.initPlayer(user._id);
                 res.send({success: true, user: user});
             })
         });
