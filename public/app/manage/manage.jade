@@ -2,30 +2,46 @@
 	.panel.panel-default
 		.panel-body
 			h2 {{ username }}
-				p Level: {{ PlayerData.player.level }}
-				.progress
-					.progress-bar.progress-bar-success.progress-bar-stripes(style="width: {{PlayerData.player.levelComplete * 100 | number:0}}%")
-			h3 Player information: resources
-				.row
-					.col-md-3
-						p Gold: {{ PlayerData.resources['gold'] | number:0 }}
-					.col-md-3
-						p Bionium: {{ PlayerData.resources['bionium'] | number:0 }}
-					.col-md-3
-						p Qubitium: {{ PlayerData.resources['qubitium'] | number:0 }}
-					.col-md-3
-						p Transendium: {{ PlayerData.resources['transendium'] | number:0 }}
+			p Level: {{ PlayerData.player.level }}
+			.progress
+				.progress-bar.progress-bar-success.progress-bar-stripes(style="width: {{PlayerData.player.levelComplete * 100 | number:0}}%")
+			h3 Resources
+			.row
+				.col-md-6
+					.panel.panel-default
+						.panel-heading Available
+						.panel-body
+							.row
+								.col-xs-3.res
+									img(src="img/au.png")
+									| {{ PlayerData.resources['gold'] | number:0 }}
+								.col-xs-3.res
+									img(src="img/bn.png")
+									| {{ PlayerData.resources['bionium'] | number:0 }}
+								.col-xs-3.res
+									img(src="img/qb.png")
+									| {{ PlayerData.resources['qubitium'] | number:0 }}
+								.col-xs-3.res
+									img(src="img/tr.png")
+									| {{ PlayerData.resources['transendium'] | number:0 }}
 
-			h3 Resource income per hour
-				.row
-					.col-md-3
-						p Gold: {{ PlayerData.resourcesPerHour['gold'] | number:0 }}
-					.col-md-3
-						p Bionium: {{ PlayerData.resourcesPerHour['bionium'] | number:0 }}
-					.col-md-3
-						p Qubitium: {{ PlayerData.resourcesPerHour['qubitium'] | number:0 }}
-					.col-md-3
-						p Transendium: {{ PlayerData.resourcesPerHour['transendium'] | number:0 }}
+				.col-md-6
+					.panel.panel-default
+						.panel-heading Incoming (per hour)
+						.panel-body
+							.row
+								.col-xs-3.res
+									img(src="img/au.png")
+									| {{ PlayerData.resourcesPerHour['gold'] | number:0 }}
+								.col-xs-3.res
+									img(src="img/bn.png")
+									| {{ PlayerData.resourcesPerHour['bionium'] | number:0 }}
+								.col-xs-3.res
+									img(src="img/qb.png")
+									| {{ PlayerData.resourcesPerHour['qubitium'] | number:0 }}
+								.col-xs-3.res
+									img(src="img/tr.png")
+									| {{ PlayerData.resourcesPerHour['transendium'] | number:0 }}
 
 			table.table.table-hover.neat
 				thead
