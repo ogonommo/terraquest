@@ -1,6 +1,6 @@
 extends includes/layout
 block main-content
-    nav.nav.navbar-inverse.navbar-static-top(id="main-nav" role="navigation")
+    nav.nav.navbar-default.navbar-static-top(id="main-nav" role="navigation")
         .container
             .navbar-header
                 button.navbar-toggle(type="button" data-toggle="collapse" data-target="#navBarCollapse")
@@ -13,13 +13,19 @@ block main-content
             .collapse.navbar-collapse(id="navBarCollapse")
                 ul.nav.navbar-nav
                     li
-                        a(href="#/") Home
+                        a(href="#/")
+                          i.fa.fa-home
+                          | &nbsp;Home
                     li
-                        a(href="#/planet") Planet
+                        a(href="#/planet")
+                          i.fa.fa-globe
+                          | &nbsp;Planet
                     li
-                        a(href="#/manage") Manage
+                        a(href="#/manage")
+                          i.fa.fa-tasks
+                          | &nbsp;Manage
                 div(ng-include="'partials/account/login'")
-               
+
     section
         div(ng-view)
 

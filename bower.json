@@ -21,6 +21,7 @@
     "angular-resource": "~1.4.4",
     "angular-route": "~1.4.4",
     "bootstrap": "~3.3.5",
+    "font-awesome": "fontawesome#~4.4.0",
     "jquery": "~2.1.4",
     "toastr": "~2.1.2"
   }
