@@ -1,7 +1,7 @@
 app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifier) {
     $scope.username = identity.currentUser.username;
     $scope.takeAction = function(action) {
-      console.log('action in angular: ' + action);
+      //console.log('action in angular: ' + action);
       $http.get('/api/player/' + action).success(function(s){
         if(s.success) {
           notifier.success(s.msg);
@@ -19,6 +19,9 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
         for (var i = 0, len = pd.buildings.length; i < len; i+=1) {
           prop = pd.buildings[i];
           level = prop.level;
+          if (prop.level === 0) {
+            prop.level = 'not build yet';
+          }
           multiplier = Math.pow(prop.prop.priceGradient, level);
           if (prop.upgrade) {
             prop.gold = prop.prop.price.gold * multiplier;
@@ -91,7 +94,7 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
         var PlayerData = player.export();
         update(PlayerData);
         $scope.PlayerData = PlayerData;
-        console.log($scope.PlayerData);
+        //console.log($scope.PlayerData);
     });
     var playerUpdater = $interval(function(){
       if (!identity.isAuthenticated()) {
@@ -106,7 +109,7 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
           var PlayerData = player.export();
           update(PlayerData);
           $scope.PlayerData = PlayerData;
-          console.log($scope.PlayerData);
+          //console.log($scope.PlayerData);
       });
     }, 10000);
 

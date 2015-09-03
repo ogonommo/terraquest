@@ -1,4 +1,4 @@
-.container
+.container.push-down
 	.panel.panel-default
 		.panel-body
 			h2 {{ username }}
@@ -43,22 +43,26 @@
 									img(src="img/tr.png")
 									| {{ PlayerData.resourcesPerHour['transendium'] | number:0 }}
 
-			table.table.table-hover.neat
-				thead
-					tr
-						th Building
-						th Gold
-						th Biotium
-						th Qubitium
-						th Transendium
-						th Action
-				tbody
-					tr(ng-repeat="item in PlayerData.buildings")
-						td {{ item.name }}
-						td {{ item.gold | number:0 }}
-						td {{ item.bionium | number:0 }}
-						td {{ item.qubitium | number:0 }}
-						td {{ item.transendium | number:0 }}
-						td
-							button(ng-show="item.active" ng-click="takeAction(item.prop.actionId)") Upgrade
+			h2 Unlocked buildings
+			.row
+				.col-md-6(ng-repeat="item in PlayerData.buildings")
+					.panel.panel-default
+						.panel-heading {{ item.name }} (Level: {{ item.level }})
+						.panel-body
+							h3 Cost:
+							.row
+								.col-xs-3.res
+									img(src="img/au.png")
+									| {{ item.gold | number:0 }}
+								.col-xs-3.res
+									img(src="img/bn.png")
+									| {{ item.bionium | number:0 }}
+								.col-xs-3.res
+									img(src="img/qb.png")
+									| {{ item.qubitium | number:0 }}
+								.col-xs-3.res
+									img(src="img/tr.png")
+									| {{ item.transendium | number:0 }}
+							h3 Action:
+							button.btn.btn-primary(ng-show="item.active" ng-click="takeAction(item.prop.actionId)") Upgrade
 							p(ng-hide="item.active") Requirements

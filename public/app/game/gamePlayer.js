@@ -29,18 +29,18 @@ var GamePlayer = (function(){
 				transendium: 0
 			},
 			resources: {
-				gold: 20,
+				gold: 60,
 				bionium: 0,
 				qubitium: 0,
 				transendium: 0
 			},
-			resourceGradient: 1.25,
+			resourceGradient: 1.7,
 			priceGradient: 1.3,
 			effect: {
-				pollution: 1,
+				pollution: 0.1,
 				water: 0,
 				temperature: 0,
-				kardashev: 1,
+				kardashev: 0.05,
 				zoosphere: 0,
 				noosphere: 0,
 				evolutionIndex: 0,
@@ -64,27 +64,95 @@ var GamePlayer = (function(){
 			},
 			resources: {
 				gold: 0,
-				bionium: 12,
+				bionium: 38,
 				qubitium: 0,
 				transendium: 0
 			},
 			priceGradient: 1.4,
-			resourceGradient: 1.22,
+			resourceGradient: 1.65,
 			effect: {
 				pollution: 0,
 				water: -0.3,
 				temperature: -0.1,
-				kardashev: 0.6,
-				zoosphere: 0.3,
+				kardashev: 0.06,
+				zoosphere: 0.03,
 				noosphere: 0,
-				evolutionIndex: 0.01,
-				vegetation: 1.1
+				evolutionIndex: 0.001,
+				vegetation: 0.11
 			},
 			effectGradient: 1.2,
 			experience: 210,
 			experienceGradient: 1.15,
 			levelRequired: 1,
 			maxTiers: 20
+		},
+		{
+			type: 'building',
+			actionId: 3,
+			name: 'Skytower',
+			price: {
+				gold: 700,
+				bionium: 450,
+				qubitium: 0,
+				transendium: 0
+			},
+			resources: {
+				gold: 400,
+				bionium: 10,
+				qubitium: 1,
+				transendium: 0
+			},
+			priceGradient: 1.4,
+			resourceGradient: 1.65,
+			effect: {
+				pollution: 0,
+				water: -0.3,
+				temperature: -0.1,
+				kardashev: 0.06,
+				zoosphere: 0.03,
+				noosphere: 0,
+				evolutionIndex: 0.001,
+				vegetation: 0.11
+			},
+			effectGradient: 1.2,
+			experience: 470,
+			experienceGradient: 1.15,
+			levelRequired: 3,
+			maxTiers: 7
+		},
+		{
+			type: 'building',
+			actionId: 4,
+			name: 'IT Tower',
+			price: {
+				gold: 1300,
+				bionium: 700,
+				qubitium: 3,
+				transendium: 0
+			},
+			resources: {
+				gold: 500,
+				bionium: 21,
+				qubitium: 10,
+				transendium: 0
+			},
+			priceGradient: 1.4,
+			resourceGradient: 1.65,
+			effect: {
+				pollution: 0,
+				water: -0.3,
+				temperature: -0.1,
+				kardashev: 0.06,
+				zoosphere: 0.03,
+				noosphere: 0,
+				evolutionIndex: 0.001,
+				vegetation: 0.11
+			},
+			effectGradient: 1.2,
+			experience: 470,
+			experienceGradient: 1.15,
+			levelRequired: 10,
+			maxTiers: 5
 		},
 		{
 			type: 'research',

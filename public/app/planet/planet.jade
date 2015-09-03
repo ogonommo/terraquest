@@ -1,4 +1,27 @@
-h3 Planet data
-	p name: {{ Planet.name }}
-	p Date of creation: {{ Planet.createdAt | date: 'MMM d yyyy' }}
-	p Kardashev scale: {{ Planet.kardashev }}
+.container.push-down
+	.panel.panel-default
+		.panel-heading	{{ Planet.name }}
+		.panel-body
+			h2 Planet condition
+			p
+				.fa.fa-info-circle
+				| &nbsp;Indexes between 40% and 60% lay in Goldilocks zone, everything outside is dangerous for the planet.
+			.list-group
+				.list-group-item
+					| Population: {{ Planet.population }}
+				.list-group-item
+					| Evolution index: {{ Planet.evolutionIndex }}
+				.list-group-item
+					| Kardashev level: {{ Planet.kardashev | number:2 }}
+				.list-group-item
+					| Pollution: {{ Planet.pollution | number:2 }}%
+				.list-group-item
+					| Water: {{ Planet.water | number:2 }}%
+				.list-group-item
+					| Temperature: {{ Planet.temperature | number:2 }}%
+				.list-group-item
+					| Vegetation: {{ Planet.vegetation | number:2 }}%
+				.list-group-item
+					| Zoosphere: {{ Planet.zoosphere | number:2 }}%
+				.list-group-item
+					| Noosphere: {{ Planet.noosphere | number:2 }}%

@@ -1,12 +1,17 @@
 .container
-    .jumbotron
-        h1 Terraquest
-        h2 Planet in a sandbox
+    img.logo.center-block(src="img/logo.png")
     .row
         .col-md-6
             .panel.panel-default
-                .panel-heading.text-center Game
-                .panel-body Information about the game here, keypoints, screenshots
+                .panel-heading.text-center What is Terraquest?
+                .panel-body
+                  p
+                    .fa.fa-info-circle
+                    | &nbsp;Terraquest is a "planet in a sandbox" mass multiplayer game where players take care for a living planet.
+                    | Player are able to build props and research tools to influence the planet as they want.
+                    | Some of players actions will improve the planet, others will toss it into chaos and turmoil.
+                  p There are many ways to doom the planet and only one way to save it and uplift it to Singularity.
+
         .col-md-6
             .panel.panel-default(ng-controller="LoginCtrl")
                 .panel-heading.text-center User information
@@ -15,7 +20,7 @@
                     .form-group
                       input.form-control.neat(type="text", placeholder="Username", ng-model="user.username")
                       input.form-control.neat(type="password", placeholder="Password", ng-model="user.password")
-                    button.btn.btn-primary(ng-click="login(user)") Login
-                    a.btn.btn-primary(href="#/signup") Sign Up
+                    button.btn.btn-primary.btn-spread(ng-click="login(user)") Login
+                    a.btn.btn-primary.btn-spread(href="#/signup") Sign Up
                   h2(ng-show="identity.isAuthenticated()")
                     | Welcome back, {{ identity.currentUser.username }}!
