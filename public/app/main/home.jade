@@ -8,6 +8,14 @@
                 .panel-heading.text-center Game
                 .panel-body Information about the game here, keypoints, screenshots
         .col-md-6
-            .panel.panel-info
-                .panel-heading.text-center Login/Manage Control
-                .panel-body User information here.
+            .panel.panel-info(ng-controller="LoginCtrl")
+                .panel-heading.text-center User information
+                .panel-body
+                  form.form-horizontal(ng-hide="identity.isAuthenticated()")
+                    .form-group
+                      input.form-control.neat(type="text", placeholder="Username", ng-model="user.username")
+                      input.form-control.neat(type="password", placeholder="Password", ng-model="user.password")
+                    button.btn.btn-primary(ng-click="login(user)") Login
+                    a.btn.btn-primary(href="#/signup") Sign Up
+                  h2(ng-show="identity.isAuthenticated()")
+                    | Welcome back, {{ identity.currentUser.username }}!
