@@ -1,5 +1,5 @@
 app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifier) {
-
+    $scope.username = identity.currentUser.username;
     $scope.takeAction = function(action) {
       console.log('action in angular: ' + action);
       $http.get('/api/player/' + action).success(function(s){
@@ -12,7 +12,7 @@ app.controller('ManageCtrl', function($scope, $http, $interval, identity, notifi
         notifier.error(e.msg);
       });
     }
-    
+
     function update(pd) {
       var level, multiplier, prop;
       if (pd.buildings.length) { //Go over the buildings

@@ -410,6 +410,7 @@ var GamePlayer = (function(){
 		this.PlayerData.buildings = [];
 		this.PlayerData.researches = [];
 		this.PlayerData.tools = [];
+		this.PlayerData.player = {};
 		var key, prop, data, playerProp;
 		var exportProp, rawProp;
 		for (var key in rawData.props) {
@@ -472,6 +473,20 @@ var GamePlayer = (function(){
 				}
 			}
 		}
+		//then player information
+		var baseLevel, nextLevel;
+		this.PlayerData.player.level = this.player.level;
+		this.PlayerData.player.experience = this.player.experience;
+		if (this.player.level === 1) {
+			baseLevel = 0;
+			nextLevel = rawData.levelStart;
+		} else {
+			baseLevel = rawData.levelStart * Math.pow(rawData.curveIndex, this.player.level - 2);
+			nextLevel = baseLevel * rawData.curveIndex;
+		}
+		this.PlayerData.player.baseLevel = baseLevel;
+		this.PlayerData.player.nextLevel = nextLevel;
+		this.PlayerData.player.levelComplete = (this.player.experience - baseLevel) / (nextLevel - baseLevel);
 		return this.PlayerData;
 	};
 

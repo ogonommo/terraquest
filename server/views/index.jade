@@ -11,16 +11,16 @@ block main-content
                 a.navbar-brand(href="#/") Terraquest
             <!-- Collect the nav links, forms, and other content for toggling -->
             .collapse.navbar-collapse(id="navBarCollapse")
-                ul.nav.navbar-nav
+                ul.nav.navbar-nav(ng-controller="LoginCtrl")
                     li
                         a(href="#/")
                           i.fa.fa-home
                           | &nbsp;Home
-                    li
+                    li(ng-show="identity.isAuthenticated()")
                         a(href="#/planet")
                           i.fa.fa-globe
                           | &nbsp;Planet
-                    li
+                    li(ng-show="identity.isAuthenticated()")
                         a(href="#/manage")
                           i.fa.fa-tasks
                           | &nbsp;Manage
