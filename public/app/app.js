@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngResource', 'ngRoute']).value('toastr', toastr);
+var app = angular.module('app', ['ngResource', 'ngRoute', 'angulike']).value('toastr', toastr);
 
 app.config(function($routeProvider, $locationProvider) {
 
@@ -47,6 +47,7 @@ app.config(function($routeProvider, $locationProvider) {
 });
 
 app.run(function($rootScope, $location) {
+    $rootScope.facebookAppId = '[1644913802451554]';
     $rootScope.$on('$routeChangeError', function(ev, current, previous, rejection) {
         if (rejection === 'not authorized') {
             $location.path('/');
