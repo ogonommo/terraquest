@@ -10,7 +10,7 @@
 				.list-group-item
 					| Population: {{ Planet.population }}
 				.list-group-item
-					| Evolution index: {{ Planet.evolutionIndex }}
+					| Evolution index: {{ Planet.evolutionIndex | number:2 }}
 				.list-group-item
 					| Kardashev level: {{ Planet.kardashev | number:2 }}
 				.list-group-item
