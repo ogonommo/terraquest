@@ -1,5 +1,6 @@
 var encryption = require('../utilities/encryption');
 var User = require('mongoose').model('User');
+var player = require('../models/Player');
 
 module.exports = {
     createUser: function(req, res, next) {
@@ -11,7 +12,7 @@ module.exports = {
                 console.log('Failed to register new user: ' + err);
                 return;
             }
-
+            player.initPlayer(user._id);
             req.logIn(user, function(err) {
                 if (err) {
                     res.status(400);
